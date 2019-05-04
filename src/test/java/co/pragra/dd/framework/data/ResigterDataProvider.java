@@ -29,6 +29,11 @@ public class ResigterDataProvider {
     }
 
 
+    /**
+     * This wil provide data from flat file.
+     * @return
+     */
+
     @DataProvider
     public static Object[][] registerDataP() {
         Path path = Paths.get("testdata", "data.csv");
