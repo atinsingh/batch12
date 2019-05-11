@@ -15,7 +15,7 @@ public class MainNavigation {
     @FindBy(className = "top-pricing")
     private WebElement planNPricing;
 
-    @FindBy(className = "top-contactsales")
+    @FindBy(xpath = "//a[contains(@class,'sales')]")
     private WebElement contactSales;
 
     @FindBy(id = "btnJoinMeeting")
