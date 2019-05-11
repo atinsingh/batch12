@@ -40,6 +40,6 @@ public class MainNavigation {
 
     public ContacSalesPage clickContactSales(){
         this.contactSales.click();
-        return new ContacSalesPage();
+        return new ContacSalesPage(this.driver);
     }
 }
