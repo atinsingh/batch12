@@ -15,7 +15,7 @@ public class MainNavigation {
     @FindBy(className = "top-pricing")
     private WebElement planNPricing;
 
-    @FindBy(className = "top-contactsales")
+    @FindBy(css = "a[href='/contactsales']")
     private WebElement contactSales;
 
     @FindBy(id = "btnJoinMeeting")
@@ -38,8 +38,7 @@ public class MainNavigation {
 
 
 
-    public ContacSalesPage clickContactSales(){
-        this.contactSales.click();
-        return new ContacSalesPage();
-    }
+
+
+
 }
