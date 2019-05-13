@@ -38,7 +38,9 @@ public class ContactSalesPage {
     @FindBy(id="description")
     private WebElement additionalInfo;
 
+    @FindBy(id="state")
     private WebElement state;
+
 
     @FindBy(id="btnSubmit")
     private WebElement submit;
@@ -95,22 +97,32 @@ public class ContactSalesPage {
         this.workEmailAddress.sendKeys(email);
         return this;
     }
-
-    public ContactSalesPage selectState(int index){
-        if(this.county.getAttribute("value").equalsIgnoreCase("US"))
-
-            this.state=driver.findElement(By.id("state"));
-
-        Select select=new Select(this.state);
-        select.selectByIndex(index);
-
+    public ContactSalesPage keyInZip(String zip){
+        this.zip.sendKeys(zip);
         return this;
     }
+
+    public ContactSalesPage selectState(int index){
+        if((this.county.getAttribute("value").equalsIgnoreCase("US")) || (this.county.getAttribute("value").equalsIgnoreCase("CA"))) {
+
+            this.state = driver.findElement(By.id("state"));
+
+            Select select = new Select(this.state);
+            select.selectByIndex(index);
+        }
+        return this;
+    }
+
+    public ContactSalesPage keyInInfo(String info){
+        this.additionalInfo.sendKeys(info);
+        return this;
+    }
+
 
     public WebElement submitClick() {
         this.submit.click();
 
-        return driver.findElement(By.cssSelector(""));
+        return driver.findElement(By.cssSelector("#support_contact> div[class~='hideme']>p"));
     }
 
 }
