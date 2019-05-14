@@ -42,4 +42,15 @@ public class MainNavigation {
         this.contactSales.click();
         return new ContactSalesPage(this.driver);
     }
+
+
+    public PlansAndPricing clickPlansNPricing(){
+        this.planNPricing.click();
+        return new PlansAndPricing(this.driver);
+    }
+
+    public void hoverSolutions(){
+
+    }
+
 }

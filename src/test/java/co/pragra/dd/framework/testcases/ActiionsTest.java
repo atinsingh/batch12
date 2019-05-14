@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -48,4 +49,19 @@ public class ActiionsTest {
         Assert.assertEquals(span.getText(), "Just Double Clicked");
     }
 
+
+    @AfterSuite
+    public void destroySetup(){
+        sleep(2000);
+
+        driver.quit();
+    }
+    public void sleep( long sleepTime){
+        try{
+            Thread.sleep(sleepTime);
+        }catch (InterruptedException ex){
+
+        }
+
+    }
 }
