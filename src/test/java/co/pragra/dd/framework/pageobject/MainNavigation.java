@@ -15,7 +15,7 @@ public class MainNavigation {
     @FindBy(className = "top-pricing")
     private WebElement planNPricing;
 
-    @FindBy(xpath = "//a[contains(@class,'sales')]")
+
     private WebElement contactSales;
 
     @FindBy(id = "btnJoinMeeting")
@@ -38,8 +38,19 @@ public class MainNavigation {
 
 
 
-    public ContacSalesPage clickContactSales(){
+    public ContactSalesPage clickContactSales(){
         this.contactSales.click();
-        return new ContacSalesPage(this.driver);
+
     }
+
+
+    public PlansAndPricing clickPlansNPricing(){
+        this.planNPricing.click();
+        return new PlansAndPricing(this.driver);
+    }
+
+    public void hoverSolutions(){
+
+    }
+
 }
