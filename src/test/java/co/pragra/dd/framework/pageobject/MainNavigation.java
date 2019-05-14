@@ -15,11 +15,7 @@ public class MainNavigation {
     @FindBy(className = "top-pricing")
     private WebElement planNPricing;
 
-<<<<<<< HEAD
-    @FindBy(xpath = "//a[contains(@class,'top-sales')]")
-=======
-    @FindBy(xpath = "//a[contains(@class,'sales')]")
->>>>>>> a2544cb362ab6427cc85e922dae494b4e85eb9c3
+
     private WebElement contactSales;
 
     @FindBy(id = "btnJoinMeeting")
@@ -44,11 +40,7 @@ public class MainNavigation {
 
     public ContactSalesPage clickContactSales(){
         this.contactSales.click();
-<<<<<<< HEAD
-        return new ContactSalesPage(this.driver);
-=======
-        return new ContacSalesPage(this.driver);
->>>>>>> a2544cb362ab6427cc85e922dae494b4e85eb9c3
+
     }
 
 
