@@ -1,5 +1,6 @@
 package co.pragra.dd.framework.pageobject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,6 +43,8 @@ public class ContacSalesPage {
     @FindBy(id="description")
     private  WebElement description;
 
+    @FindBy(id="btnSubmit")
+    private WebElement submit;
 
     public ContacSalesPage(WebDriver driver) {
         this.driver = driver;
@@ -108,5 +111,10 @@ public class ContacSalesPage {
     {
         this.description.sendKeys(description);
         return this;
+    }
+
+    public WebElement subMitClick(){
+        this.submit.click();
+        return driver.findElement(By.cssSelector("#support_contact> div[class~='hideme']>p"));
     }
 }
