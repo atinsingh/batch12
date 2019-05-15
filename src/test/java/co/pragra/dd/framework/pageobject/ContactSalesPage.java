@@ -8,62 +8,63 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class ContactSalesPage {
-
     WebDriver driver;
 
-    @FindBy(id="email")
-    private WebElement workEmailAddress;
 
-    @FindBy(id="company")
+    @FindBy(id = "email")
+    private WebElement workEmail;
+
+    @FindBy(id = "company")
     private WebElement companyName;
 
-    @FindBy(id="first_name")
+    @FindBy(id = "first_name")
     private WebElement firstName;
 
-    @FindBy(id="last_name")
-    private WebElement lastName;
-
-    @FindBy(id="employee_count")
+    @FindBy(id = "employee_count")
     private WebElement employeeCount;
 
-    @FindBy(id="phone")
-    private WebElement phone;
+    @FindBy(id ="last_name")
+    private WebElement lastName;
 
-    @FindBy(id="country")
-    private WebElement county;
+    @FindBy(id ="phone")
+    private WebElement phoneNumber;
 
-    @FindBy(id="city")
-    private WebElement zip;
 
-    @FindBy(id="description")
-    private WebElement additionalInfo;
+    @FindBy(id = "country")
+    private WebElement country;
 
-    @FindBy(id="state")
+    @FindBy(id = "city")
+    private WebElement headquater;
+
+    @FindBy(id = "state")
     private WebElement state;
 
+    @FindBy(id = "description")
+    private WebElement addInfo;
 
-    @FindBy(id="btnSubmit")
-    private WebElement submit;
+    @FindBy(id = "btnSubmit")
+    private WebElement subBtn;
 
-    @FindBy(id="")
-    private WebElement requestDemo;
-
-    @FindBy(id="")
-    private  WebElement partnerPrograms;
-
-    public ContactSalesPage(WebDriver driver){
-
-        this.driver=driver;
+    public ContactSalesPage(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver,this);
-
     }
+
+
     public ContactSalesPage keyInFirstName(String name){
         this.firstName.sendKeys(name);
         return this;
     }
 
-    public ContactSalesPage keyInLastName(String lastName){
-        this.lastName.sendKeys(lastName);
+
+    public ContactSalesPage keyInEmail(String email){
+        this.workEmail.sendKeys(email);
+        return this;
+    }
+
+
+    public ContactSalesPage keyInLastName(String name){
+        this.lastName.sendKeys(name);
         return this;
     }
 
@@ -73,56 +74,44 @@ public class ContactSalesPage {
         return this;
     }
 
-
-    public ContactSalesPage keyInEmployeeByIndex(int index){
-
-        Select select=new Select(this.employeeCount);
+    public ContactSalesPage selectEmployeeByIndex(int index){
+        Select select = new Select(this.employeeCount);
         select.selectByIndex(index);
         return this;
     }
 
-
-    public ContactSalesPage keyInCountry(String value){
-       Select select=new Select(this.county);
-       select.selectByValue(value);
-       return this;
-    }
-
-    public ContactSalesPage keyInPhoneNumber(String phone){
-        this.phone.sendKeys(phone);
+    public ContactSalesPage keyInPhone(String phone){
+        this.phoneNumber.sendKeys(phone);
         return this;
     }
 
-    public ContactSalesPage keyInEmail(String email){
-        this.workEmailAddress.sendKeys(email);
-        return this;
-    }
-    public ContactSalesPage keyInZip(String zip){
-        this.zip.sendKeys(zip);
+    public ContactSalesPage selectCountryByValue(String value){
+        Select select = new Select(this.country);
+        select.selectByValue(value);
         return this;
     }
 
     public ContactSalesPage selectState(int index){
-        if((this.county.getAttribute("value").equalsIgnoreCase("US")) || (this.county.getAttribute("value").equalsIgnoreCase("CA"))) {
-
+        if(this.country.getAttribute("value").equalsIgnoreCase("US")) {
             this.state = driver.findElement(By.id("state"));
-
             Select select = new Select(this.state);
             select.selectByIndex(index);
         }
         return this;
     }
 
-    public ContactSalesPage keyInInfo(String info){
-        this.additionalInfo.sendKeys(info);
+
+    public ContactSalesPage keyInAdditonalInfo(String info){
+        this.addInfo.sendKeys(info);
         return this;
     }
 
-
-    public WebElement submitClick() {
-        this.submit.click();
-
+    public WebElement subMitClick(){
+        this.subBtn.click();
         return driver.findElement(By.cssSelector("#support_contact> div[class~='hideme']>p"));
     }
 
+
+
 }
+
