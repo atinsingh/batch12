@@ -65,5 +65,19 @@ public class MainNavigation {
 
 
 
+    public ContactSalesPage clickContactSales(){
+        this.contactSales.click();
+
+    }
+
+
+    public PlansAndPricing clickPlansNPricing(){
+        this.planNPricing.click();
+        return new PlansAndPricing(this.driver);
+    }
+
+    public void hoverSolutions(){
+
+    }
 
 }
