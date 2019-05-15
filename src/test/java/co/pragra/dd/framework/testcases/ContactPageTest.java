@@ -1,5 +1,6 @@
 package co.pragra.dd.framework.testcases;
 
+import co.pragra.dd.framework.config.AppConfig;
 import co.pragra.dd.framework.pageobject.ContactSalesPage;
 import co.pragra.dd.framework.pageobject.MainNavigation;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -19,9 +20,11 @@ public class ContactPageTest {
 
     @BeforeSuite
     public void setUp(){
+
+        System.setProperty("webdriver.chrome.driver", AppConfig.getProperty("chromedriverexe"));
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("https://zoom.us");
+        driver.get(AppConfig.getProperty("url"));
         navigation = new MainNavigation(driver);
     }
 
