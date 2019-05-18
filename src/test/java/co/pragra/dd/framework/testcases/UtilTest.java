@@ -9,4 +9,5 @@ public class UtilTest {
     public void test(){
         CommonUtils.createScreenShotDirectories();
     }
+
 }
