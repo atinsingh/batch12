@@ -1,7 +1,13 @@
 package co.pragra.dd.framework.testcases;
 
-import co.pragra.dd.framework.pageobject.ContacSalesPage;
+import co.pragra.dd.framework.config.AppConfig;
+import co.pragra.dd.framework.drivermanger.DriverManager;
+import co.pragra.dd.framework.pageobject.ContactSalesPage;
 import co.pragra.dd.framework.pageobject.MainNavigation;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,16 +20,16 @@ import org.testng.annotations.Test;
 
 public class ContactPageTest {
 
-    WebDriver driver ;
+    WebDriver driver = DriverManager.getDriverInstance();
+    Logger logger = LogManager.getLogger(ContactPageTest.class);
 
     MainNavigation navigation;
     ContactSalesPage contactSalesPage;
 
     @BeforeSuite
     public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("https://zoom.us");
+        logger.log(Level.INFO, "Opening URL  {}  with driver", AppConfig.getProperty("url") );
+        driver.get(AppConfig.getProperty("url"));
         navigation = new MainNavigation(driver);
     }
 

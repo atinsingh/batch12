@@ -11,27 +11,28 @@ import java.util.List;
 public class TestFillo {
 
     public static void main(String[] args) {
-        Path path = Paths.get("testdata","Demo.xlsx");
+//        Path path = Paths.get("testdata","Demo.xlsx");
+//
+//        List<Object[]> data = new ArrayList<>();
+//
+//        Fillo fillo = new Fillo();
+//        try {
+//            Connection connection = fillo.getConnection(path.toString());
+//            String sql = "SELECT * FROM login";
+//            Recordset recordset = connection.executeQuery(sql);
+//
+//            while (recordset.next()){
+//                List<Object> colData = new ArrayList<>();
+//
+//                    colData.add(recordset.getField(0).value());
+//                               data.add(colData.toArray());
+//                System.out.println(colData);
+//            }
+//
+//
+//        }catch (FilloException ex){
+//            ex.printStackTrace();
+//        }
 
-        List<Object[]> data = new ArrayList<>();
-
-        Fillo fillo = new Fillo();
-        try {
-            Connection connection = fillo.getConnection(path.toString());
-            String sql = "SELECT * FROM login";
-            Recordset recordset = connection.executeQuery(sql);
-
-            while (recordset.next()){
-                List<Object> colData = new ArrayList<>();
-
-                    colData.add(recordset.getField(0).value());
-                               data.add(colData.toArray());
-                System.out.println(colData);
-            }
-
-
-        }catch (FilloException ex){
-            ex.printStackTrace();
-        }
     }
 }
