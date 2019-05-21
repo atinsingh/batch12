@@ -42,10 +42,7 @@ public class MainNavigation {
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-    public ContacSalesPage clickContactSales(){
-        this.contactSales.click();
-        return new ContacSalesPage(this.driver);
-    }
+
 
 
     public MainNavigation keysolutionsmeeting()

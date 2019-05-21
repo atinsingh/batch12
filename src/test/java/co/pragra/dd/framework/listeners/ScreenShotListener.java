@@ -11,12 +11,23 @@ import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class ScreenShotListener extends TestListenerAdapter {
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         super.onTestSuccess(iTestResult);
+        WebDriver driver =DriverManager.getDriverInstance();
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String successFile=CommonUtils.getFileName(iTestResult.getName(),true);
+        File file =new File(successFile);
+
+        try {
+            Files.copy(screenshot,file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

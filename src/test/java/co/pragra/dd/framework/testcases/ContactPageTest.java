@@ -50,6 +50,7 @@ public class ContactPageTest {
                 .selectCountryByValue("US")
                 .selectState(3)
                 .keyInPhone("64626362623")
+                .keyZip("l6r 3s0")
                 .keyInAdditonalInfo("This is just for fun")
                 .subMitClick();
 

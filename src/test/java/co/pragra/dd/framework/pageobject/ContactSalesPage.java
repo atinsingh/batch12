@@ -101,6 +101,11 @@ public class ContactSalesPage {
     }
 
 
+    public ContactSalesPage keyZip (String zip)
+    {
+        this.headquater.sendKeys(zip);
+        return this;
+    }
     public ContactSalesPage keyInAdditonalInfo(String info){
         this.addInfo.sendKeys(info);
         return this;
