@@ -2,6 +2,7 @@ package co.pragra.dd.framework.testcases;
 
 import co.pragra.dd.framework.config.AppConfig;
 import co.pragra.dd.framework.drivermanger.DriverManager;
+import co.pragra.dd.framework.listeners.ScreenShotListener;
 import co.pragra.dd.framework.pageobject.ContactSalesPage;
 import co.pragra.dd.framework.pageobject.MainNavigation;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -16,8 +17,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+
+@Listeners({ScreenShotListener.class})
 public class ContactPageTest {
 
     WebDriver driver = DriverManager.getDriverInstance();

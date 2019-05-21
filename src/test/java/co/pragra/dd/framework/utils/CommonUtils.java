@@ -32,4 +32,12 @@ public class CommonUtils {
            logger.log(Level.ERROR,"Error in creating directory msg {}", ex.getMessage());
         }
     }
+
+    public static String getFileName(String testName, boolean pass){
+        createScreenShotDirectories();
+        if(pass) {
+            return Paths.get("screenshot",screenShotDirName,"pass", testName+".png").toString();
+        }
+        return Paths.get("screenshot",screenShotDirName,"fail", testName+".png").toString();
+    }
 }
