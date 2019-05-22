@@ -5,6 +5,9 @@ import co.pragra.dd.framework.drivermanger.DriverManager;
 import co.pragra.dd.framework.listeners.ScreenShotListener;
 import co.pragra.dd.framework.pageobject.ContactSalesPage;
 import co.pragra.dd.framework.pageobject.MainNavigation;
+import co.pragra.dd.framework.reports.HTMLReport;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -16,6 +19,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -26,6 +30,7 @@ public class ContactPageTest {
 
     WebDriver driver = DriverManager.getDriverInstance();
     Logger logger = LogManager.getLogger(ContactPageTest.class);
+    //ExtentTest extentTest = HTMLReport.getInstance().getReports().createTest("ContactPageTest");
 
     MainNavigation navigation;
     ContactSalesPage contactSalesPage;
@@ -54,9 +59,16 @@ public class ContactPageTest {
                 .keyInAdditonalInfo("This is just for fun")
                 .subMitClick();
 
+
         Assert.assertEquals(element.getText(),"Thank you for contacting Zoom! We will be in touch soon.");
     }
 
+
+    @AfterSuite
+    public void tearDown(){
+        driver.quit();
+        HTMLReport.getInstance().getReports().flush();
+    }
 
 
 }

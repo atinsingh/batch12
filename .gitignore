@@ -1,5 +1,7 @@
 *.iml
 target/
+screenshot/
+reports/
 .idea/
 .classpath
 .project
