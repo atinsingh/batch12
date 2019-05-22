@@ -26,6 +26,8 @@ public class DataProviderTest {
         System.out.println(pass);
     }
 
+
+
 //    @Test(dataProvider = "userpass", dataProviderClass = ResigterDataProvider.class)
 //    public void dummyLoginTC(String username, String pass) {
 //        System.out.println("Doing login using username -> " + username + "  Password --> " + pass);

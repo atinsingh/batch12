@@ -1,5 +1,6 @@
 package co.pragra.dd.framework.data;
 
+import co.pragra.dd.framework.config.AppConfig;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
@@ -17,7 +18,7 @@ public class ExcelDataProvider {
     /*
         This file should exists in your testdata directory
      */
-    private static String excelFileName ="Demo.xlsx";
+
 
 
     /*
@@ -33,11 +34,11 @@ public class ExcelDataProvider {
         List<Object[]> data = new ArrayList<>();
 
        // We need file path to read file
-        Path path = Paths.get("testdata",excelFileName);
+
 
         // Read the file as inputstream
         try {
-            InputStream stream = new FileInputStream(path.toFile());
+            InputStream stream = new FileInputStream(AppConfig.getProperty("datafile-name"));
 
             // create excel workbook
             Workbook workbook = new XSSFWorkbook(stream);
